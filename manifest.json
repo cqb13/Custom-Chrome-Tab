@@ -8,7 +8,6 @@
     
     "action": {
       "default_title": "Custom Chrome Background",
-      "default_popup": "popup.html",
       "default_icon": {
         "16": "/images/icon16-1.png",
         "32": "/images/icon32-1.png",
