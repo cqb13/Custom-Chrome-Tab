@@ -9,15 +9,14 @@
         padding: 0;
         box-sizing: border-box;
       }
-
       .background {
         width: 100vw;
         height: 100vh;
         background-size: cover;
         background-position: center;
       }
-
       .picker-label {
+        display: block;
         position: fixed;
         right: 0;
         top: 0;
@@ -25,23 +24,20 @@
         cursor: pointer;
         padding: 10px;
         font-size: 110%;
-        opacity: .3;
+        opacity: .1;
         transition: opacity .2s;
       }
-
-      body:hover .picker-label {
+      .picker-label:hover {
         opacity: 1;
       }
-
       .picker {
         display: none;
       }
-
     </style>
   </head>
   <body>
     <div class="background"></div>
-    <label class="picker-label">
+    <label class="picker-label" id="label">
       <span title="Pick an Image">🌄</span>
       <input type="file" class="picker" />
     </label>
