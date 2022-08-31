@@ -24,6 +24,7 @@ function listenPick() {
   });
 }
 
+
 function init() {
   listenPick();
   if (localStorage.backgroundData) {
