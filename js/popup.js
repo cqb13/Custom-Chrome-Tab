@@ -9,31 +9,24 @@ const info = {
 };
 
 toggle.addEventListener("change", function () {
-  chrome.storage.sync.get(["state", "showIcon"], function (data) {
+  chrome.storage.sync.get(["state"], function (data) {
     var state = data.state;
-    var showIcon = data.showIcon;
+
     if (state == false) {
       state = true;
-    } else {
+    } else if (state == true) {
       state = false;
     }
+
     chrome.storage.sync.set({ state: state });
-    chrome.storage.sync.set({ showIcon: showIcon });
-    if (showIcon != false) {
-      chrome.notifications.create(info);
-      chrome.notifications.onButtonClicked.addListener(notAgain(showIcon));
-    }
+
+    chrome.notifications.create("notification", info);
   });
 });
 
-function notAgain(showIcon) {
-  showIcon = false;
-  chrome.storage.sync.set({ showIcon: showIcon });
-}
-
 function startUp() {
   chrome.storage.sync.get("state", function (data) {
-    toggle.checked = !data.state;
+    toggle.checked = data.state;
   });
 }
 
