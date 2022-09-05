@@ -20,9 +20,19 @@ toggle.addEventListener("change", function () {
 
     chrome.storage.sync.set({ state: state });
 
-    chrome.notifications.create("notification", info);
+    chrome.storage.sync.get("showNotification", function (data) {
+      if (data.showNotification != false) {
+        chrome.notifications.create(info);
+        chrome.notifications.onButtonClicked.addListener(notAgain);
+      }
+    });
   });
 });
+
+function notAgain() {
+  var show = false;
+  chrome.storage.sync.set({ showNotification: show });
+}
 
 function startUp() {
   chrome.storage.sync.get("state", function (data) {
