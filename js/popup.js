@@ -2,7 +2,7 @@ const toggle = document.getElementById("toggle-switch");
 
 const info = {
   type: "basic",
-  iconUrl: "/images/icon128.png",
+  iconUrl: "../images/icon128.png",
   title: "Info",
   message: "You must reload the current page for changes to apply!",
   buttons: [{ title: "Dont Show Again" }],
@@ -27,7 +27,7 @@ toggle.addEventListener("change", function () {
 });
 
 function notAgain(showIcon) {
-  showIcon = true;
+  showIcon = false;
   chrome.storage.sync.set({ showIcon: showIcon });
 }
 

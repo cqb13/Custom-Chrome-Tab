@@ -34,7 +34,7 @@ function init() {
   if (localStorage.backgroundData) {
     setBackground(localStorage.backgroundData);
   } else {
-    setBackground("default.png");
+    setBackground("../images/background.png");
   }
 }
 
