@@ -1,7 +1,7 @@
 body {
     margin-top: 10px;
     width: 250px;
-    height: 200px;
+    height: 240px;
     text-align: center;
     color: #fff;
     background-color: #444;
@@ -12,7 +12,46 @@ body {
     font-size: 20px;
 }
 
-/*probably not the best way to do this, but its late and I dont want to find a better way.*/
+input[type="entry"] {
+    width: 80%;
+    margin: 10px;
+    text-align: center;
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 20px;
+    outline: none;
+}
+
+input[type="entry"]:focus {
+    border: 1px solid #496bbe;
+    transition: 400ms;
+}
+
+input[type="button"] {
+    margin: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    font-size: inherit;
+    font-size: 20px;
+    color: inherit;
+    background-color: inherit;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+input[type="button"]:hover {
+    background-color: #496bbe66;
+    border-color: #496bbe;
+    transition: 400ms;
+}
+
+input[type="button"]:active {
+    scale: 1.2;
+}
+
 .toggle {
     cursor: pointer;
     display: inline-block;

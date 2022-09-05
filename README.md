@@ -32,6 +32,4 @@ _Make sure the file you try and upload is under 5MB_
 
 ## Todo
 
-- add storage thing to save user preferance
-- add an option to set custom tab name
 - add an option to set a custom icon for a new tab

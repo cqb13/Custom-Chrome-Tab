@@ -1,11 +1,8 @@
+const tabName = document.getElementById("tab-name");
+
 function setBackground(url) {
   const backgroundEl = document.querySelector(".background");
   backgroundEl.style.backgroundImage = `url('${url}')`;
-  chrome.storage.sync.get("state", function (data) {
-    if (!data.state) {
-      document.getElementById("label").style.display = "none";
-    }
-  });
 }
 
 function onFileSelect(e) {
@@ -37,5 +34,19 @@ function init() {
     setBackground("../images/background.png");
   }
 }
+
+chrome.storage.sync.get(["state", "newTitle"], function (data) {
+  var newTabTitle = data.newTitle;
+  if (!data.state) {
+    document.getElementById("label").style.display = "none";
+  }
+  if (newTabTitle == "" || newTabTitle == null) {
+    newTabTitle = "New Tab"
+  } else {
+    newTabTitle = String(newTabTitle)
+  }
+
+  tabName.innerHTML = newTabTitle
+});
 
 init();

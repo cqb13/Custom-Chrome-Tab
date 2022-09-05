@@ -1,4 +1,6 @@
 const toggle = document.getElementById("toggle-switch");
+const newTitle = document.getElementById("new-title");
+const update = document.getElementById("update");
 
 const info = {
   type: "basic",
@@ -7,6 +9,11 @@ const info = {
   message: "You must reload the current page for changes to apply!",
   buttons: [{ title: "Dont Show Again" }],
 };
+
+update.addEventListener("click", function () {
+  chrome.storage.sync.set({ newTitle: newTitle.value })
+  newTitle.value = "";
+});
 
 toggle.addEventListener("change", function () {
   chrome.storage.sync.get(["state"], function (data) {
