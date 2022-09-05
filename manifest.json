@@ -1,7 +1,7 @@
 {
   "name": "Custom Chrome Background",
   "description": "Set a custom background for new tabs",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "manifest_version": 3,
 
   "permissions": ["storage", "activeTab", "scripting", "notifications"],
@@ -10,17 +10,17 @@
     "default_title": "Custom Chrome Background",
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/images/icon16-1.png",
-      "32": "/images/icon32-1.png",
-      "48": "/images/icon48-1.png",
-      "128": "/images/icon128-1.png"
+      "16": "/images/icon16.png",
+      "32": "/images/icon32.png",
+      "48": "/images/icon48.png",
+      "128": "/images/icon128.png"
     }
   },
   "icons": {
-    "16": "/images/icon16-1.png",
-    "32": "/images/icon32-1.png",
-    "48": "/images/icon48-1.png",
-    "128": "/images/icon128-1.png"
+    "16": "/images/icon16.png",
+    "32": "/images/icon32.png",
+    "48": "/images/icon48.png",
+    "128": "/images/icon128.png"
   },
 
   "chrome_url_overrides": { "newtab": "tab.html" }

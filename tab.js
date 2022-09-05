@@ -1,6 +1,11 @@
 function setBackground(url) {
   const backgroundEl = document.querySelector(".background");
   backgroundEl.style.backgroundImage = `url('${url}')`;
+  chrome.storage.sync.get("state", function (data) {
+    if (data.state) {
+      document.getElementById("label").style.display = "none";
+    }
+  });
 }
 
 function onFileSelect(e) {
@@ -23,7 +28,6 @@ function listenPick() {
     onFileSelect(e);
   });
 }
-
 
 function init() {
   listenPick();

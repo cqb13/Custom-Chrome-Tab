@@ -11,18 +11,27 @@
 <hr />
 
 # How to install
+
 - Download the latest [release](/../../releases).
 - Un zip the downloaded folder.
 - Turn on developer mode in the chrome extention screen.
 - Press load unpacked and select the un ziped folder.
 
-*This only works in chrome*
+_This only works in chrome_
 
-## Features 
+## Features
+
 - Cleaner custom new tab background
 
 ## How to use
+
 - click the icon in the top right corner of the screen
 - select the image you want as your background
 
-*Make sure the file you try and upload is under 5MB*
+_Make sure the file you try and upload is under 5MB_
+
+## Todo
+
+- add storage thing to save user preferance
+- add an option to set custom tab name
+- add an option to set a custom icon for a new tab
