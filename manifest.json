@@ -1,7 +1,7 @@
 {
   "name": "Custom Chrome Background",
   "description": "Set a custom background for new tabs",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "manifest_version": 3,
 
   "permissions": ["storage", "activeTab", "scripting", "notifications"],

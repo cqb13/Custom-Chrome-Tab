@@ -43,7 +43,7 @@ function notAgain() {
 
 function startUp() {
   chrome.storage.sync.get(["stateCCB"], function (data) {
-      toggle.checked = data.stateCCB;
+      toggle.checked = !data.stateCCB;
   });
 }
 
