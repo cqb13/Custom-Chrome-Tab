@@ -32,4 +32,5 @@ _Make sure the file you try and upload is under 5MB_
 
 ## Todo
 
+- maybe fix dont ask again popup (more testing needed)
 - add an option to set a custom icon for a new tab
