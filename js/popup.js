@@ -19,9 +19,9 @@ toggle.addEventListener("change", function () {
   chrome.storage.sync.get(["stateCCB"], function (data) {
     var stateCCB = data.stateCCB;
 
-    if (stateCCB == false || stateCCB == null) {
+    if (stateCCB == false) {
       stateCCB = true;
-    } else if (stateCCB == true) {
+    } else {
       stateCCB = false;
     }
 
@@ -43,7 +43,7 @@ function notAgain() {
 
 function startUp() {
   chrome.storage.sync.get(["stateCCB"], function (data) {
-      toggle.checked = !data.stateCCB;
+      toggle.checked = data.stateCCB;
   });
 }
 
