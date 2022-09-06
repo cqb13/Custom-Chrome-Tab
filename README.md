@@ -32,7 +32,4 @@ _Make sure the file you try and upload is under 5MB_
 
 ## Todo
 
-- fix switch state on start up (should be on)
-- fix background not showing on start up (is white now, should be default)
-- maybe fix dont ask again popup (more testing needed)
 - add an option to set a custom icon for a new tab

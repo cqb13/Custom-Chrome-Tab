@@ -31,14 +31,14 @@ function init() {
   if (localStorage.backgroundData) {
     setBackground(localStorage.backgroundData);
   } else {
-    setBackground("../images/background.png");
+    setBackground("../images/default.png");
   }
 }
 
-chrome.storage.sync.get(["stateCCB", "newTitle"], function (data) {
+chrome.storage.sync.get(["stateCCB", "newTitle", "firstCCB"], function (data) {
   var newTabTitle = data.newTitle;
 
-  if (!data.stateCCB) {
+  if (!data.stateCCB && data.firstCCB == true) {
     document.getElementById("label").style.display = "none";
   }
 

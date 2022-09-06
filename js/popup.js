@@ -42,8 +42,14 @@ function notAgain() {
 }
 
 function startUp() {
-  chrome.storage.sync.get(["stateCCB"], function (data) {
-      toggle.checked = data.stateCCB;
+  chrome.storage.sync.get(["stateCCB", "firstCCB"], function (data) {
+      if (data.firstCCB != true) {
+        var run = true
+        toggle.checked = run
+        chrome.storage.sync.set({ firstCCB: run })
+      } else {
+        toggle.checked = data.stateCCB;
+      }
   });
 }
 
