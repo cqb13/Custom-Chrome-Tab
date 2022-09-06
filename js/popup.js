@@ -11,24 +11,24 @@ const info = {
 };
 
 update.addEventListener("click", function () {
-  chrome.storage.sync.set({ newTitle: newTitle.value })
+  chrome.storage.sync.set({ newTitle: newTitle.value });
   newTitle.value = "";
 });
 
 toggle.addEventListener("change", function () {
-  chrome.storage.sync.get(["state"], function (data) {
-    var state = data.state;
+  chrome.storage.sync.get(["stateCCB"], function (data) {
+    var stateCCB = data.stateCCB;
 
-    if (state == false) {
-      state = true;
-    } else if (state == true) {
-      state = false;
+    if (stateCCB == false || stateCCB == null) {
+      stateCCB = true;
+    } else if (stateCCB == true) {
+      stateCCB = false;
     }
 
-    chrome.storage.sync.set({ state: state });
+    chrome.storage.sync.set({ stateCCB: stateCCB });
 
-    chrome.storage.sync.get("showNotification", function (data) {
-      if (data.showNotification != false) {
+    chrome.storage.sync.get("showNotificationCCB", function (data) {
+      if (data.showNotificationCCB != false) {
         chrome.notifications.create(info);
         chrome.notifications.onButtonClicked.addListener(notAgain);
       }
@@ -38,12 +38,12 @@ toggle.addEventListener("change", function () {
 
 function notAgain() {
   var show = false;
-  chrome.storage.sync.set({ showNotification: show });
+  chrome.storage.sync.set({ showNotificationCCB: show });
 }
 
 function startUp() {
-  chrome.storage.sync.get("state", function (data) {
-    toggle.checked = data.state;
+  chrome.storage.sync.get(["stateCCB"], function (data) {
+      toggle.checked = data.stateCCB;
   });
 }
 

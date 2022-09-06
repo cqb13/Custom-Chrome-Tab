@@ -35,18 +35,20 @@ function init() {
   }
 }
 
-chrome.storage.sync.get(["state", "newTitle"], function (data) {
+chrome.storage.sync.get(["stateCCB", "newTitle"], function (data) {
   var newTabTitle = data.newTitle;
-  if (!data.state) {
+
+  if (!data.stateCCB) {
     document.getElementById("label").style.display = "none";
   }
+
   if (newTabTitle == "" || newTabTitle == null) {
-    newTabTitle = "New Tab"
+    newTabTitle = "New Tab";
   } else {
-    newTabTitle = String(newTabTitle)
+    newTabTitle = String(newTabTitle);
   }
 
-  tabName.innerHTML = newTabTitle
+  tabName.innerHTML = newTabTitle;
 });
 
 init();
