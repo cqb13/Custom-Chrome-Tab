@@ -35,10 +35,10 @@ function init() {
   }
 }
 
-chrome.storage.sync.get(["stateCCB", "newTitle", "firstCCB"], function (data) {
+chrome.storage.sync.get(["stateCCT", "newTitle", "firstCCT"], function (data) {
   var newTabTitle = data.newTitle;
 
-  if (!data.stateCCB && data.firstCCB == true) {
+  if (!data.stateCCT && data.firstCCT == true) {
     document.getElementById("label").style.display = "none";
   }
 

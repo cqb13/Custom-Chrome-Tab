@@ -1,11 +1,11 @@
 <div align="center">
   <!-- Logo and Title -->
-  <h1>Custom Chrome Background</h1>
-  <p>Set a custom background for new tabs.</p>
+  <h1>Custom Chrome Tab</h1>
+  <p>Allows you to customize the chrome new tab!</p>
 
 <!-- Fancy badges -->
-<img src="https://img.shields.io/github/languages/code-size/cqb13/Custom-Chrome-Background" alt="Code Size">
-<img src="https://img.shields.io/github/stars/cqb13/Custom-Chrome-Background" alt="Stars">
+<img src="https://img.shields.io/github/languages/code-size/cqb13/Custom-Chrome-Tab" alt="Code Size">
+<img src="https://img.shields.io/github/stars/cqb13/Custom-Chrome-Tab" alt="Stars">
 </div>
 
 <hr />
@@ -21,7 +21,7 @@ _This only works in chrome_
 
 ## Features
 
-- Cleaner custom new tab background
+- Cleaner custom new tab 
 
 ## How to use
 

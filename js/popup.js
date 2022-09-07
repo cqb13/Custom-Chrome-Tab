@@ -16,19 +16,19 @@ update.addEventListener("click", function () {
 });
 
 toggle.addEventListener("change", function () {
-  chrome.storage.sync.get(["stateCCB"], function (data) {
-    var stateCCB = data.stateCCB;
+  chrome.storage.sync.get(["stateCCT"], function (data) {
+    var stateCCT = data.stateCCT;
 
-    if (stateCCB == false) {
-      stateCCB = true;
+    if (stateCCT == false) {
+      stateCCT = true;
     } else {
-      stateCCB = false;
+      stateCCT = false;
     }
 
-    chrome.storage.sync.set({ stateCCB: stateCCB });
+    chrome.storage.sync.set({ stateCCT: stateCCT });
 
-    chrome.storage.sync.get("showNotificationCCB", function (data) {
-      if (data.showNotificationCCB != false) {
+    chrome.storage.sync.get("showNotificationCCT", function (data) {
+      if (data.showNotificationCCT != false) {
         chrome.notifications.create(info);
         chrome.notifications.onButtonClicked.addListener(notAgain);
       }
@@ -38,17 +38,17 @@ toggle.addEventListener("change", function () {
 
 function notAgain() {
   var show = false;
-  chrome.storage.sync.set({ showNotificationCCB: show });
+  chrome.storage.sync.set({ showNotificationCCT: show });
 }
 
 function startUp() {
-  chrome.storage.sync.get(["stateCCB", "firstCCB"], function (data) {
-      if (data.firstCCB != true) {
+  chrome.storage.sync.get(["stateCCT", "firstCCT"], function (data) {
+      if (data.firstCCT != true) {
         var run = true
         toggle.checked = run
-        chrome.storage.sync.set({ firstCCB: run })
+        chrome.storage.sync.set({ firstCCT: run })
       } else {
-        toggle.checked = data.stateCCB;
+        toggle.checked = data.stateCCT;
       }
   });
 }

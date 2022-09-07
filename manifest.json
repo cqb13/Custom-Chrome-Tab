@@ -1,13 +1,13 @@
 {
-  "name": "Custom Chrome Background",
-  "description": "Set a custom background for new tabs",
+  "name": "Custom Chrome Tab",
+  "description": "Allows you to customize the chrome new tab!",
   "version": "0.0.6",
   "manifest_version": 3,
 
   "permissions": ["storage", "activeTab", "scripting", "notifications"],
 
   "action": {
-    "default_title": "Custom Chrome Background",
+    "default_title": "Custom Chrome Tab",
     "default_popup": "/layout/popup.html",
     "default_icon": {
       "16": "/images/icon16.png",
