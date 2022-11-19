@@ -21,7 +21,9 @@ _This only works in chrome_
 
 ## Features
 
-- Cleaner custom new tab 
+- Custom background
+- Custom tab name
+- Custom tab icon
 
 ## How to use
 

@@ -15,44 +15,6 @@ function setIcon(icon) {
   );
 }
 
-function onFileSelect(e, type) {
-  const file = e.target.files[0];
-  const reader = new FileReader();
-  reader.addEventListener("load", () => {
-    if (type === "background") {
-      try {
-        localStorage.backgroundData = reader.result;
-        setBackground(localStorage.backgroundData);
-      } catch (err) {
-        alert("Image size must be smaller than 5MB");
-      }
-    } else {
-      try {
-        localStorage.iconData = reader.result;
-        setIcon(localStorage.iconData);
-      } catch (err) {
-        alert("Image size must be smaller than 5MB");
-      }
-    }
-  });
-  reader.readAsDataURL(file);
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.reload(tabs[0].id);
-  });
-}
-
-function listenPick() {
-  const backgroundPicker = document.querySelector(".picker-background");
-  const iconPicker = document.querySelector(".picker-icon");
-  backgroundPicker.addEventListener("change", (e) => {
-    onFileSelect(e, "background");
-  });
-
-  iconPicker.addEventListener("change", (e) => {
-    onFileSelect(e, "icon");
-  });
-}
-
 function init() {
   if (localStorage.backgroundData) {
     setBackground(localStorage.backgroundData);
@@ -82,5 +44,4 @@ chrome.storage.sync.get(["stateCCT", "newTitle", "firstCCT"], function (data) {
   tabName.innerHTML = newTabTitle;
 });
 
-listenPick();
 init();

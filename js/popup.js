@@ -1,3 +1,5 @@
+const backgroundPicker = document.querySelector(".picker-background");
+const iconPicker = document.querySelector(".picker-icon");
 const toggle = document.getElementById("toggle-switch");
 const newTitle = document.getElementById("new-title");
 const update = document.getElementById("update");
@@ -5,6 +7,15 @@ const update = document.getElementById("update");
 update.addEventListener("click", function () {
   chrome.storage.sync.set({ newTitle: newTitle.value });
   newTitle.value = "";
+  reload();
+});
+
+iconPicker.addEventListener("change", (e) => {
+  onFileSelect(e, "icon");
+});
+
+backgroundPicker.addEventListener("change", (e) => {
+  onFileSelect(e, "background");
 });
 
 toggle.addEventListener("change", function () {
@@ -22,6 +33,24 @@ toggle.addEventListener("change", function () {
     chrome.storage.sync.set({ stateCCT: stateCCT });
   });
 });
+
+function onFileSelect(e, type) {
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    try {
+      if (type === "background") {
+        localStorage.backgroundData = reader.result;
+      } else {
+        localStorage.iconData = reader.result;
+      }
+    } catch (err) {
+      console.log("Image size must be smaller than 5MB");
+    }
+  });
+  reader.readAsDataURL(file);
+  reload();
+}
 
 function startUp() {
   chrome.storage.sync.get(["stateCCT", "firstCCT"], function (data) {
