@@ -29,7 +29,3 @@ _This only works in chrome_
 - select the image you want as your background
 
 _Make sure the file you try and upload is under 5MB_
-
-## Todo
-
-- add an option to set a custom icon for a new tab

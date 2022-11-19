@@ -7,10 +7,20 @@
   </head>
   <body>
     <div class="background"></div>
-    <label class="picker-label" id="label">
-      <span title="Pick an Image">🌄</span>
-      <input type="file" class="picker" />
-    </label>
+    <div class="options-container" id="display">
+      <label class="picker-label" id="label">
+        <span title="Pick an icon">
+          <img id="icon" src="../images/Tab-Icon.png" width="20px" height="20px"/>
+        </span>
+        <input type="file" class="picker-icon" />
+      </label>
+      <label class="picker-label" id="label">
+        <span title="Pick an icon">
+          <img id="icon" src="../images/Tab-Background.png" width="25px" height="25px"/>
+        </span>
+        <input type="file" class="picker-background" />
+      </label>
+    </div>
     <script src="../js/tab.js"></script>
   </body>
 </html>
