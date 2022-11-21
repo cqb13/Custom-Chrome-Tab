@@ -41,6 +41,7 @@ function onFileSelect(e, type) {
     try {
       if (type === "background") {
         localStorage.backgroundData = reader.result;
+        reload();
       } else {
         localStorage.iconData = reader.result;
       }
