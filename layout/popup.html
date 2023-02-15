@@ -13,14 +13,27 @@
   <main>
     <input id="new-title" type="entry" placeholder="Enter a tab name" />
     <input id="update" type="button" value="Update Name" class="button" />
+
     <label class="picker-label">
       <p class="button">Pick Icon</p>
       <input type="file" class="picker-icon" />
     </label>
-    <label class="picker-label">
-      <p class="button">Pick Background</p>
-      <input type="file" class="picker-background" />
-    </label>
+
+    <div id="image-mode">
+      <label class="picker-label">
+        <p class="button">Pick Background</p>
+        <input type="file" class="picker-background" />
+      </label>
+    </div>
+
+    <div id="circle-mode" class="hidden">
+      <p>Circle Color</p>
+      <input type="color" id="circle-color" value="#496bbe" class="picker-color">
+      <p>Background Color</p>
+      <input type="color" id="background-color" value="#444444" class="picker-color">
+    </div>
+    <input id="mode-switch" type="range" min="0" max="1">
+    <p id="mode-label">Image Mode</p>
   </main>
   <hr>
   <footer>
@@ -31,6 +44,7 @@
         </path>
     </svg></a>
   </footer>
-  <script src="../js/popup.js" async defer></script>
+  <script src="../js/popup.js"></script>
+  <script src="../js/circle.js"></script>
 </body>
 </html>

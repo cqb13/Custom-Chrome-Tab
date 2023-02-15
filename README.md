@@ -30,4 +30,4 @@ _This only works in chrome_
 - click the icon in the top right corner of the screen
 - select the image you want as your background
 
-_Make sure the file you try and upload is under 5MB_
+_[Original Project](https://github.com/Subash/chrome-custom-new-tab-background)_

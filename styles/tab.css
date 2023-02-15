@@ -1,9 +1,12 @@
-body,
-html {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 .background {
@@ -19,4 +22,9 @@ html {
 
 .picker-icon {
   display: none;
+}
+
+.circle {
+  border-radius: 50%;
+  position: absolute;
 }
