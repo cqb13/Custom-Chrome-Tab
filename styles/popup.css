@@ -155,7 +155,22 @@ main {
 }
 
 footer {
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #496bbe;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 svg.footerIcon {

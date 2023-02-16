@@ -111,6 +111,23 @@ function getDistance(c1, c2) {
   return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 }
 
+const blocks = async () => {
+  await chrome.storage.sync.get(["backgroundColorBlockCCT", "blockColorCCT", "gradientCCT", "gradient1CCT", "gradient2CCT"], function (data) {
+    if (data.gradientCCT) {
+      console.log(`linear-gradient(180deg, ${data.gradient1CCT}, ${data.gradient2CCT})`)
+      document.body.style.background = `linear-gradient(180deg, ${data.gradient1CCT}, ${data.gradient2CCT})`;
+    } else {
+      document.body.style.backgroundColor = data.backgroundColorBlockCCT;
+    }
+    createBlocks(data.blockColorCCT);
+  });
+}
+
+const createBlocks = (color) => {
+
+}
+
+//!!!: on first load, background is blank until popup is opened
 // else if to account for more types in the future
 const init = async () => {
   let backgroundType = await chrome.storage.sync.get(["backgroundTypeCCT"]);
@@ -133,6 +150,8 @@ const init = async () => {
     }
   } else if (mode == "C") {
     circles();
+  } else if (mode == "B") {
+    blocks();
   }
 
   if (localStorage.iconData) {

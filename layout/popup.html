@@ -30,13 +30,34 @@
       <p>Circle Color</p>
       <input type="color" id="circle-color" value="#496bbe" class="picker-color">
       <p>Background Color</p>
-      <input type="color" id="background-color" value="#444444" class="picker-color">
+      <input type="color" id="background-color-circle" value="#444444" class="picker-color">
     </div>
-    <input id="mode-switch" type="range" min="0" max="1">
+
+    <div id="block-mode" class="hidden">
+      <p>Block Color</p>
+      <input type="color" id="block-color" value="#496bbe" class="picker-color">
+      <section id="normal">
+        <p>Background Color</p>
+        <input type="color" id="background-color-block" value="#6992c9" class="picker-color">
+      </section>
+      <label>
+        <input type="checkbox" id="gradient-switch">
+        Gradient
+      </label>
+      <section id="gradient" class="hidden">
+        <p>Background Color 1</p>
+        <input type="color" id="gradient1" value="#f9f9f9" class="picker-color">
+        <p>Background Color 2</p>
+        <input type="color" id="gradient2" value="#6992c9" class="picker-color">
+      </section>
+    </div>
+
+    <input id="mode-switch" type="range" min="0" max="2">
     <p id="mode-label">Image Mode</p>
   </main>
   <hr>
   <footer>
+    <a href="https://cqb13.me/" target="_blank">cqb13.me</a>
     <a class="footerLink" href="https://github.com/cqb13" target="_blank" alt="Vist my github"><svg class="footerIcon"
         alt="GitHub" viewBox="0 0 16 16">
         <path
