@@ -27,7 +27,7 @@ _This only works in chrome_
 
 ## How to use
 
-- click the icon in the top right corner of the screen
-- select the image you want as your background
+- Click the extension icon in the top right of chrome.
+- Mess around with the settings.
 
 _[Original Project](https://github.com/Subash/chrome-custom-new-tab-background)_

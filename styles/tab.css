@@ -14,6 +14,7 @@ body {
   height: 100vh;
   background-size: cover;
   background-position: center;
+  z-index: 1;
 }
 
 .picker-background {
@@ -27,4 +28,13 @@ body {
 .circle {
   border-radius: 50%;
   position: absolute;
+}
+
+.block {
+  position: absolute;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.8px);
+  -webkit-backdrop-filter: blur(0.8px);
+  z-index: -1;
 }

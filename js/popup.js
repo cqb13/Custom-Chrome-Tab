@@ -58,8 +58,6 @@ const setColors = () => {
       blockBackgroundGradient1.value = data.gradient1CCT;
       blockBackgroundGradient2.value = data.gradient2CCT;
       backgroundColorPickerBlock.value = data.backgroundColorBlockCCT;
-
-      console.log(data.gradient1CCT, data.gradient2CCT)
     }
   );
 };

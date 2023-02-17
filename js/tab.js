@@ -1,12 +1,12 @@
-const circleContainer = document.getElementsByTagName("body")[0];
+const container = document.getElementsByTagName("body")[0];
+const background = document.querySelector(".background");
 const head = document.getElementsByTagName("head")[0];
 const tabName = document.getElementById("tab-name");
 const circlesList = [];
 let color = ""
 
 function setBackground(url) {
-  const backgroundEl = document.querySelector(".background");
-  backgroundEl.style.backgroundImage = `url('${url}')`;
+  background.style.backgroundImage = `url('${url}')`;
 }
 
 function setIcon(icon) {
@@ -26,8 +26,8 @@ const circles = async () => {
 };
 
 const startCircleCreation = (color) => {
-  const mainWidth = circleContainer.offsetWidth;
-  const mainHeight = circleContainer.offsetHeight;
+  const mainWidth = container.offsetWidth;
+  const mainHeight = container.offsetHeight;
   const maxSize = Math.floor(Math.random() * 500);
 
   const x = Math.floor(Math.random() * mainWidth);
@@ -90,7 +90,7 @@ async function grow(circle, mainHeight, mainWidth, maxSize) {
       }
     }
 
-    circleContainer.appendChild(circle);
+    container.appendChild(circle);
   }
   circles();
 }
@@ -114,7 +114,6 @@ function getDistance(c1, c2) {
 const blocks = async () => {
   await chrome.storage.sync.get(["backgroundColorBlockCCT", "blockColorCCT", "gradientCCT", "gradient1CCT", "gradient2CCT"], function (data) {
     if (data.gradientCCT) {
-      console.log(`linear-gradient(180deg, ${data.gradient1CCT}, ${data.gradient2CCT})`)
       document.body.style.background = `linear-gradient(180deg, ${data.gradient1CCT}, ${data.gradient2CCT})`;
     } else {
       document.body.style.backgroundColor = data.backgroundColorBlockCCT;
@@ -124,11 +123,31 @@ const blocks = async () => {
 }
 
 const createBlocks = (color) => {
+  let blockAmount = Math.floor(Math.random() * 10) + 1;
 
+  background.style.background = `rgb(255, 255, 255, 0.1)`;
+  background.style.backdropFilter = `blur(1px)`;
+  background.style.webkitBackdropFilter = `blur(1px)`;
+
+  for (let i = 0; i < blockAmount; i++) {
+    createBlock(color);
+  }
+}
+
+const createBlock = (color) => {
+  let block = document.createElement("div");
+  block.classList.add("block");
+  block.style.height = Math.floor(Math.random() * 20) + 10 + "%";
+  block.style.width = Math.floor(Math.random() * 20) + 10 + "%";
+  block.style.transform = "rotate(" + Math.floor(Math.random() * 180) + "deg)";
+  block.style.left = Math.floor(Math.random() * 80) + "%";
+  block.style.top = Math.floor(Math.random() * 80) + "%";
+  block.style.opacity = Math.random();
+  block.style.backgroundColor = color;
+  container.appendChild(block);
 }
 
 //!!!: on first load, background is blank until popup is opened
-// else if to account for more types in the future
 const init = async () => {
   let backgroundType = await chrome.storage.sync.get(["backgroundTypeCCT"]);
   let tabTitle = await chrome.storage.sync.get(["newTitle"]);
@@ -142,16 +161,17 @@ const init = async () => {
     tabName.innerHTML = title
   }
 
-  if (mode == "I") {
+  // Image mode is default
+  if (mode == "C") {
+    circles();
+  } else if (mode == "B") {
+    blocks();
+  } else {
     if (localStorage.backgroundData) {
       setBackground(localStorage.backgroundData);
     } else {
       setBackground("../images/default.png");
     }
-  } else if (mode == "C") {
-    circles();
-  } else if (mode == "B") {
-    blocks();
   }
 
   if (localStorage.iconData) {
