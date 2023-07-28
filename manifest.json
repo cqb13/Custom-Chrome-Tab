@@ -4,7 +4,7 @@
   "version": "0.1.2",
   "manifest_version": 3,
 
-  "permissions": ["storage", "activeTab", "scripting", "notifications"],
+  "permissions": ["storage", "tabs"],
 
   "action": {
     "default_title": "Custom Chrome Tab",
