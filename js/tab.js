@@ -3,7 +3,7 @@ const background = document.querySelector(".background");
 const head = document.getElementsByTagName("head")[0];
 const tabName = document.getElementById("tab-name");
 const circlesList = [];
-let color = ""
+let color = "";
 
 function setBackground(url) {
   background.style.backgroundImage = `url('${url}')`;
@@ -18,11 +18,20 @@ function setIcon(icon) {
   );
 }
 
-const circles = async () => {
-  await chrome.storage.sync.get(["backgroundColorCCT", "circleColorCCT"], function (data) {
-    document.body.style.backgroundColor = data.backgroundColorCCT;
-    startCircleCreation(data.circleColorCCT);
+const solid = async () => {
+  await chrome.storage.sync.get(["backgroundColorSolidCCT"], function (data) {
+    document.body.style.backgroundColor = data.backgroundColorSolidCCT;
   });
+};
+
+const circles = async () => {
+  await chrome.storage.sync.get(
+    ["backgroundColorCCT", "circleColorCCT"],
+    function (data) {
+      document.body.style.backgroundColor = data.backgroundColorCCT;
+      startCircleCreation(data.circleColorCCT);
+    }
+  );
 };
 
 const startCircleCreation = (color) => {
@@ -41,7 +50,7 @@ const startCircleCreation = (color) => {
       y > circlesList[i].offsetTop &&
       y < circlesList[i].offsetTop + circlesList[i].offsetHeight
     ) {
-      circles()
+      circles();
       return;
     }
   }
@@ -112,15 +121,24 @@ function getDistance(c1, c2) {
 }
 
 const blocks = async () => {
-  await chrome.storage.sync.get(["backgroundColorBlockCCT", "blockColorCCT", "gradientCCT", "gradient1CCT", "gradient2CCT"], function (data) {
-    if (data.gradientCCT) {
-      document.body.style.background = `linear-gradient(180deg, ${data.gradient1CCT}, ${data.gradient2CCT})`;
-    } else {
-      document.body.style.backgroundColor = data.backgroundColorBlockCCT;
+  await chrome.storage.sync.get(
+    [
+      "backgroundColorBlockCCT",
+      "blockColorCCT",
+      "gradientCCT",
+      "gradient1CCT",
+      "gradient2CCT"
+    ],
+    function (data) {
+      if (data.gradientCCT) {
+        document.body.style.background = `linear-gradient(180deg, ${data.gradient1CCT}, ${data.gradient2CCT})`;
+      } else {
+        document.body.style.backgroundColor = data.backgroundColorBlockCCT;
+      }
+      createBlocks(data.blockColorCCT);
     }
-    createBlocks(data.blockColorCCT);
-  });
-}
+  );
+};
 
 const createBlocks = (color) => {
   let blockAmount = Math.floor(Math.random() * 10) + 1;
@@ -132,7 +150,7 @@ const createBlocks = (color) => {
   for (let i = 0; i < blockAmount; i++) {
     createBlock(color);
   }
-}
+};
 
 const createBlock = (color) => {
   let block = document.createElement("div");
@@ -145,9 +163,8 @@ const createBlock = (color) => {
   block.style.opacity = Math.random();
   block.style.backgroundColor = color;
   container.appendChild(block);
-}
+};
 
-//!!!: on first load, background is blank until popup is opened
 const init = async () => {
   let backgroundType = await chrome.storage.sync.get(["backgroundTypeCCT"]);
   let tabTitle = await chrome.storage.sync.get(["newTitle"]);
@@ -156,9 +173,9 @@ const init = async () => {
   let title = tabTitle.newTitle;
 
   if (title == "" || title == null) {
-    tabName.innerHTML = "New Tab"
+    tabName.innerHTML = "New Tab";
   } else {
-    tabName.innerHTML = title
+    tabName.innerHTML = title;
   }
 
   // Image mode is default
@@ -166,6 +183,8 @@ const init = async () => {
     circles();
   } else if (mode == "B") {
     blocks();
+  } else if (mode == "S") {
+    solid();
   } else {
     if (localStorage.backgroundData) {
       setBackground(localStorage.backgroundData);
