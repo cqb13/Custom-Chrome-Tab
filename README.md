@@ -13,9 +13,9 @@
 # How to install
 
 - Download the latest [release](/../../releases).
-- Un zip the downloaded folder.
-- Turn on developer mode in the chrome extention screen.
-- Press load unpacked and select the un ziped folder.
+- Un-zip the downloaded folder.
+- Turn on developer mode in the chrome extension screen.
+- Press load unpacked and select the un-zipped folder.
 
 _This only works in chrome_
 
